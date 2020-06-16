@@ -1,0 +1,36 @@
+.btn {
+  padding: 0.438rem 1rem;
+  border-radius: 4px;
+  background-color: $red;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  font-size: 0.813rem;
+  font-weight: 700;
+
+  &--review {
+    cursor: pointer;
+    background-color: $black;
+    border: none;
+    border-radius: 6px;
+    padding: 0.625rem 0.813rem;
+  }
+
+  &--order {
+    border: none;
+    cursor: pointer;
+  }
+
+  &--reset {
+    background: transparent;
+    border: none;
+    font-size: rem(14px);
+    text-transform: none;
+    cursor: pointer;
+  }
+
+  &--slider {
+    margin-left: rem(20px);
+    padding: rem(10px) rem(14px);
+  }
+}

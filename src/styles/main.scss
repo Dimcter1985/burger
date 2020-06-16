@@ -1,0 +1,23 @@
+//colors
+$yellow: #f9b43b;
+$red: #e45028;
+$orange: #e35028;
+$white: #ffffff;
+$black: #2f3234;
+
+//z-index
+$point-menu-z: 10;
+$fullscreen-z: 20;
+$logo-z: 30;
+$popup-z: 40;
+
+// resolutions
+$phones: 480px;
+$tablets: 768px;
+$laptop: 1020px;
+
+//layout
+@import './_layout/*.scss';
+
+//blocks
+@import './blocks/*.scss';

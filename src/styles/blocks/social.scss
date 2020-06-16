@@ -1,0 +1,25 @@
+.social__list {
+  text-align: right;
+
+  @include phones {
+    text-align: center;
+    margin-top: rem(10px);
+  }
+}
+
+.social__item {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: rem(16px);
+}
+
+.social__ico {
+  width: rem(20px);
+  height: rem(20px);
+  fill: #585858;
+
+  &:hover {
+    fill: $white;
+    transition: .3s;
+  }
+}

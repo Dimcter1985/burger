@@ -1,0 +1,191 @@
+.order {
+  background: url('../images/chalkboard.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.order__conteiner {
+  padding-top: rem(140px);
+
+  @include phones {
+    padding-top: rem(40px);
+  }
+}
+
+.form__wrap {
+  padding-top: rem(40px);
+  display: flex;
+
+  @include tablets {
+    flex-direction: column;
+  }
+}
+
+.form__col {
+  width: 50%;
+
+  @include tablets {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  @include phones {
+    width: 100%;
+    padding-left: rem(12px);
+  }
+}
+
+.form__row {
+  display: flex;
+  margin-bottom: rem(11px);
+}
+
+.form__block {
+  display: block;
+  flex: 1;
+  margin-right: rem(15px);
+  position: relative;
+}
+
+.form__block-name,
+.option__choice,
+.checkbox__ansver {
+  display: block;
+  color: $white;
+}
+
+.form__input {
+  padding: rem(8px);
+  margin-top: rem(5px);
+  width: 100%;
+  background-color: $white;
+  border: 2px solid transparent;
+  border-radius: 5px;
+
+  &:focus {
+    border-color: $yellow;
+    outline: none;
+  }
+
+  &--textarea {
+    height: rem(107px);
+    resize: none;
+  }
+}
+
+.option {
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  margin-right: rem(18px);
+  align-items: center;
+}
+
+.option__input {
+  display: none;
+}
+
+.option__input-fake {
+  width: rem(16px);
+  height: rem(16px);
+  background-color: $white;
+  border-radius: 50%;
+  vertical-align: middle;
+  position: relative;
+  margin-right: rem(10px);
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: rem(8px);
+    height: rem(8px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: $red;
+    opacity: 0;
+    transition: 0.3s;
+  }
+}
+
+.option__input:checked+.option__input-fake:after {
+  opacity: 1;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.checkbox__input {
+  display: none;
+}
+
+.checkbox__input-fake {
+  position: relative;
+  width: rem(15px);
+  height: rem(15px);
+  background: $white;
+  margin-right: rem(10px);
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: rem(4px);
+    height: rem(8px);
+    top: 0;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    border-bottom: 3px solid $red;
+    border-right: 3px solid $red;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: 0.3s;
+  }
+}
+
+.checkbox__input:checked+.checkbox__input-fake:after {
+  opacity: 1;
+}
+
+.form__row-wrap {
+  @include phones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form__window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  background-color: rgba($black, 0.9);
+}
+
+.form__success {
+  width: rem(210px);
+  border-radius: 5px;
+  background-color: $white;
+  z-index: $popup-z;
+  padding: rem(30px) rem(20px);
+  @include ubuntu($style: medium);
+  font-size: rem(14px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ 
+.btn--closed {
+  margin-top: rem(10px);
+}

@@ -1,0 +1,120 @@
+.menu {
+  background: url('../images/wallpaper-5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.menu .title--white {
+  position: absolute;
+  top: 10%;
+  left: 10%
+}
+
+.menu-accordeon__list {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  @extend %clearfix;
+}
+
+.menu-accordeon__item {
+  height: 100%;
+  float: left;
+
+  &--active {
+
+    .menu-accordeon__title {
+      color: $yellow;
+    }
+
+    .menu-accordeon__content {
+      width: rem(525px);
+
+      @include tablets {
+        width: rem(282px);
+      }
+
+      @include phones {
+        width: rem(250px);
+      }
+
+      .menu-accordeon__text {
+        display: block;
+      }
+    }
+  }
+}
+
+  .menu-accordeon__link {
+    display: block;
+    position: relative;
+    height: 100%;
+    float: left;
+    width: rem(80px);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    @include tablets {
+      width: rem(70px);
+    }
+
+    @include phones {
+      width: rem(50px);
+    }
+  }
+
+  .menu-accordeon__title {
+    display: block;
+    font-size: rem(40px);
+    color: $white;
+    @include gagalin();
+    text-align: center;
+    white-space: nowrap;
+    position: absolute;
+    transform: rotate(-90deg) translateY(-50%);
+    transform-origin: 0 0;
+    left: 50%;
+    top: 100%;
+    margin-top: rem(-20px);
+
+    @include phones {
+      font-size: rem(26px);
+    }
+  }
+
+  .menu-accordeon__content {
+    height: 100%;
+    float: left;
+    background: rgba(#2f3234, .93);
+    width: 0;
+    overflow: hidden;
+    transition: width .6s;
+  }
+
+  .menu-accordeon__text {
+    @include ubuntu(light);
+    font-size: rem(14px);
+    color: #fff;
+    padding: rem(30px) rem(20px);
+    width: 100%;
+    line-height: 1.8;
+    opacity: 0;
+    transition: opacity .2s;
+
+    @include phones {
+      width: rem(218px);
+      padding: rem(10px) rem(10px);
+    }
+ }
+
+ .menu-accordeon__item--active .menu-accordeon__text {
+  animation: text .8s linear forwards;
+}
+
+@keyframes text {
+  75% { opacity: 0; }
+  to { opacity: 1; }
+}

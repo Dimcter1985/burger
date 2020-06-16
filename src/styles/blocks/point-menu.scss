@@ -1,0 +1,58 @@
+.point-menu {
+  position: fixed;
+  top: rem(89px);
+  right: rem(52px);
+  z-index: $point-menu-z;
+
+  @include tablets {
+    display: none;
+  }
+
+  @include phones {
+    display: none;
+  }
+}
+
+.point-menu__list {
+  font-size: 0;
+}
+
+.point-menu__item {
+  margin-bottom: rem(15px);
+}
+
+.point-menu__link {
+  width: rem(10px);
+  height: rem(10px);
+  background: $white;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+
+  &--black {
+    background: $black;
+    &.point-menu__link:after {
+      border: 1px solid $black;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: rem(15px);
+    width: rem(15px);
+    border-radius: 50%;
+    border: 1px solid $white;
+    opacity: 0;
+    transition:opacity 0.3s ;
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+}
+
+

@@ -1,0 +1,83 @@
+.advantages {
+  background-image: url('../images/wallpaper-2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.advantages__conteiner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.advantages .title {
+  margin-bottom: 8.438rem;
+
+  @include phones {
+    margin-bottom: rem(40px);
+  }
+}
+
+.advantages__list {
+  display: flex;
+
+  @include phones {
+    flex-direction: column;
+  }
+}
+
+.advantages__features {
+  @include lifehack();
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin: 1.875rem 0 1.25rem 0;
+}
+
+.advantages__item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  width: 33%;
+  padding: 0 0.938rem;
+
+  @include phones {
+    width: 100%;
+    text-align: left;
+    align-items: flex-start;
+    padding-left: rem(120px);
+  }
+
+  &::after {
+    content: '';
+    width: 6rem;
+    height: 5.563rem;
+    bottom: 100%;
+    background-image: url('../images/icons/meat.svg');
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include phones {
+      bottom: rem(25px);
+      left: 0;
+    }
+  }
+
+  &--hand::after {
+    background-image: url('../images/icons/hand.svg');
+    width: 4.563rem;
+    height: 5.375rem;
+  }
+
+  &--natural::after {
+    background-image: url('../images/icons/natural.svg');
+    width: 5.5rem;
+    height: 4.75rem;
+  }
+
+}

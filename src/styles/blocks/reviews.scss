@@ -1,0 +1,108 @@
+.reviews {
+  display: flex;
+  position: relative;
+}
+
+.reviews__list {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reviews__item {
+  flex-basis: 25%;
+  height: 50%;
+  position: relative;
+  filter: grayscale(100%);
+
+  @include tablets {
+    flex-basis: 50%;
+    height: 25%;
+  }
+
+  &:hover {
+    .reviews__content {
+      opacity: 1;
+    }
+  }
+}
+
+.reviews__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.reviews__content {
+  opacity: 0;
+  color: $white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($black, 0.5);
+  padding: 3.125rem 1.313rem;
+  transition: opacity .4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include tablets {
+    padding: 1.125rem 1.313rem;
+  }
+
+  @include phones {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.reviews__name {
+  @include gagalin();
+  text-transform: uppercase;
+
+  @include phones {
+    font-size: rem(24px);
+    margin-bottom: rem(30px);
+    text-align: center;
+  }
+}
+
+.reviews__content>p {
+  @include phones {
+    display: none;
+  }
+}
+
+.reviews__popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  background-color: rgba($black, 0.9);
+}
+
+.reviews__popup-block {
+  width: rem(470px);
+  border-radius: 5px;
+  background-color: $white;
+  z-index: $popup-z;
+  padding: rem(30px) rem(20px);
+  @include ubuntu($style: medium);
+  font-size: rem(14px);
+  position: relative;
+}
+
+.reviews__popup-title {
+  @include gagalin();
+  color: $black;
+  text-transform: uppercase;
+  font-size: rem(16px);
+}

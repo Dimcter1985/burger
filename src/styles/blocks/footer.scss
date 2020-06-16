@@ -1,0 +1,47 @@
+.footer {
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../images/chalkboard_footer.png') no-repeat;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  padding: rem(5px) rem(0px);
+}
+
+.footer__conteiner {
+  display: flex;
+  align-items: center;
+
+  @include phones {
+    flex-direction: column;
+  }
+}
+
+.footer__left,
+.footer__right {
+  width: 50%;
+
+  @include phones {
+    text-align: center;
+  }
+}
+
+.contacts {
+  color: $white;
+  font-style: normal;
+}
+
+.contacts__number {
+  display: block;
+  @include ubuntu();
+  font-weight: 700;
+  color: $red;
+  margin-top: rem(6px);
+
+  &:before {
+    content: url('../images/phone.png');
+    margin-right: rem(10px)
+  }
+}

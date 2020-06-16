@@ -1,0 +1,134 @@
+.team {
+  background-image: url('../images/wallpaper-4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.team__info {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background: rgba(52, 55, 57, 0.7);
+  padding-left: 8%;
+
+  @include tablets {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    text-align: center;
+    padding-left: 0;
+    padding-top: rem(200px);
+  }
+
+  @include phones {
+    padding-top: rem(120px);
+  }
+}
+
+.team__info .title {
+  margin-top: rem(110px);
+  margin-bottom: rem(44px);
+
+  @include tablets {
+    margin-top: 0;
+  }
+}
+
+.team-accordeon__item {
+  margin-bottom: rem(28px);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--active {
+    .team-accordeon__name {
+      color: $yellow;
+
+      &::before {
+        transform: rotate(0);
+      }
+    }
+
+    .team-accordeon__desc {
+      max-height: rem(450px);
+      transition: max-height 1s;
+    }
+  }
+}
+
+.team-accordeon__name {
+  font-family: 'Gagalin', Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: $white;
+  position: relative;
+
+  @include tablets {
+    font-size: rem(24px);
+  }
+
+  &::before {
+    content: '';
+    height: 0;
+    width: 0;
+    border: 0.375rem solid transparent;
+    border-top-width: 2px;
+    border-bottom-color: $yellow;
+    display: inline-block;
+    transform: rotate(180deg);
+    margin-right: rem(10px);
+  }
+}
+
+.team-accordeon__desc {
+  display: flex;
+  max-width: rem(330px);
+  max-height: 0;
+  overflow: hidden;
+  margin-top: rem(20px);
+  margin-left: rem(16px);
+
+  @include tablets {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+}
+
+.team-accordeon__about {
+  color: $white;
+  margin-left: rem(18px);
+  
+  @include tablets {
+    margin-left: 0;
+  }
+}
+
+.team-accordeon__img {
+  width: rem(100px);
+  height: rem(100px);
+  border-radius: 50%;
+  overflow: hidden;
+
+  @include tablets {
+    margin: 0 auto;
+  }
+}
+
+.team-accordeon__pic {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.team-accordeon__title {
+  @include ubuntu(bold);
+  margin-bottom: rem(12px);
+}
