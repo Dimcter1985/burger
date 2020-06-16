@@ -1,5 +1,5 @@
 .work {
-  background-image: url('../images/wallpaper-3.png');
+  background-image: url('./images/wallpaper-3.png');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -46,7 +46,7 @@
   width: rem(22px);
   height: rem(22px);
   background: transparent;
-  background-image: url('../images/icons/play-button.svg');
+  background-image: url('./images/icons/play-button.svg');
   background-repeat: no-repeat;
   background-size: cover;
   border: none;
@@ -57,7 +57,7 @@
   top: 0;
 
   &.paused {
-    background-image: url('../images/icons/pause.svg');
+    background-image: url('./images/icons/pause.svg');
   }
 }
 
@@ -132,7 +132,7 @@
     content: '';
     width: rem(16px);
     height: rem(22px);
-    background-image: url('../images/icons/volume.svg');
+    background-image: url('./images/icons/volume.svg');
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;

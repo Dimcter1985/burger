@@ -3,7 +3,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../images/chalkboard_footer.png') no-repeat;
+  background: url('./images/chalkboard_footer.png') no-repeat;
   background-size: cover;
   position: absolute;
   overflow: hidden;
@@ -41,7 +41,7 @@
   margin-top: rem(6px);
 
   &:before {
-    content: url('../images/phone.png');
+    content: url('./images/phone.png');
     margin-right: rem(10px)
   }
 }

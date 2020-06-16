@@ -14,7 +14,7 @@
 * npm
 
 ## [Посмотреть сайт]()
-![portfolio](src/images/content/screenshot.jpg)
+![portfolio](src/images/screenshot.jpg)
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/)
 

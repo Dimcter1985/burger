@@ -1,5 +1,5 @@
 .greeting {
-  background-image: url('../images/wallpaper-1.png');
+  background-image: url('./images/wallpaper-1.png');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -48,7 +48,7 @@
 .greeting__scroll {
   width: rem(40px);
   height: rem(40px);
-  background-image: url("../images/icons/arrow-scroll.svg");
+  background-image: url("./images/icons/arrow-scroll.svg");
   background-repeat: no-repeat;
   background-size: contain;
   display: block;
