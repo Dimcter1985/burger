@@ -13,12 +13,19 @@
 * Git
 * npm
 
-## [Посмотреть сайт]()
+## Посмотреть сайт можно [тут](https://dimcter1985.github.io/burger/dist/) или [тут](http://burger.dimcter1985.tmweb.ru/)
 ![portfolio](src/images/screenshot.jpg)
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/)
-
-$ git clone 
+```sh
+$ git clone
+```
+```sh 
 $ cd burger_project
+```
+```sh
 $ npm i
+```
+```sh
 $ npm run gulp
+```
