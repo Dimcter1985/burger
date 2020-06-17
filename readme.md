@@ -13,7 +13,7 @@
 * Git
 * npm
 
-## Посмотреть сайт можно [тут](https://dimcter1985.github.io/burger/dist/) или [тут](http://burger.dimcter1985.tmweb.ru/)
+## Посмотреть сайт можно [тут](https://dimcter1985.github.io/burger/dist/)
 ![portfolio](src/images/screenshot.jpg)
 
 > Перед установкой зависимостей и запуском проекта убедитесь, что у вас установлена [последняя версия Node.js & NPM](https://nodejs.org/en/download/current/)
