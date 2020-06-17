@@ -5,8 +5,8 @@ let inscroll = false;
 let scrolable = true;
 let pointMenu = $('.point-menu__link');
 
-// const mobileDetect = new MobileDetect(window.navigator.userAgent);
-// const isMobile = mobileDetect.mobile();
+const mobileDetect = new MobileDetect(window.navigator.userAgent);
+const isMobile = mobileDetect.mobile();
 
 const countPositionPercent = sectionEq => {
   return `${sectionEq * -100}%`;
@@ -101,7 +101,7 @@ $("[data-scroll-to]").on("click", e => {
 
 
 // разрешаем свайп на мобильниках
-// if (isMobile) {
+if (isMobile) {
 //   window.addEventListener(
 //     "touchmove",
 //     e => {
@@ -110,15 +110,15 @@ $("[data-scroll-to]").on("click", e => {
 //     { passive: false }
 //   );
 
-//   $("body").swipe({
-//     swipe: (event, direction) => {
-//       let scrollDirecrion;
-//       if (direction === "up") scrollDirecrion = "next";
-//       if (direction === "down") scrollDirecrion = "prev";
-//       scrollViewport(scrollDirecrion);
-//     }
-//   });
-// }
+  $("body").swipe({
+    swipe: (event, direction) => {
+      let scrollDirecrion;
+      if (direction === "up") scrollDirecrion = "next";
+      if (direction === "down") scrollDirecrion = "prev";
+      scrollViewport(scrollDirecrion);
+    }
+  });
+}
 
 
 // ПОЛНОЭКРАННОЕ МЕНЮ
