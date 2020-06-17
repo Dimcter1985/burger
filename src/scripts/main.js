@@ -31,7 +31,7 @@ const switchActiveClass = (elems, elemNdx) => {
 const unBlockScroll = () => {
   setTimeout(() => {
     inscroll = false;
-  }, 1300); // подождать пока завершится инерция на тачпадах
+  }, 600); // подождать пока завершится инерция на тачпадах
 };
 
 const performTransition = sectionEq => {
