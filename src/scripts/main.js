@@ -355,123 +355,245 @@ for (let index = 0; index < coords.length; index++) {
 ymaps.ready(init);
 
 //  ONE PAGE SCROLL
-const sections = $('.section');
-const display = $('.main');
-let inscroll = false;
-let scrolable = true;
-let pointMenu = $('.point-menu__link');
+// const sections = $('.section');
+// const display = $('.main');
+// let inscroll = false;
+// let scrolable = true;
+// let pointMenu = $('.point-menu__link');
 
-const mobileDetect = new MobileDetect(window.navigator.userAgent);
-const isMobile = mobileDetect.mobile();
+// const mobileDetect = new MobileDetect(window.navigator.userAgent);
+// const isMobile = mobileDetect.mobile();
 
-const countPositionPercent = sectionEq => {
-  return `${sectionEq * -100}%`;
+// const countPositionPercent = sectionEq => {
+//   return `${sectionEq * -100}%`;
+// };
+
+// const switchActiveClass = (elems, elemNdx) => {
+
+//   elems
+//     .eq(elemNdx)
+//     .addClass('active')
+//     .siblings()
+//     .removeClass('active');
+
+//   //черный цвет для dots
+//   if(elemNdx == 1 || elemNdx == 6 || elemNdx == 8) {
+//     $(pointMenu).addClass('point-menu__link--black');
+//   } else {
+//       $(pointMenu).removeClass('point-menu__link--black');
+//     };
+// };
+
+// const unBlockScroll = () => {
+//   setTimeout(() => {
+//     inscroll = false;
+//   }, 600); // подождать пока завершится инерция на тачпадах
+// };
+
+// const performTransition = sectionEq => {
+//   if (inscroll) return;
+//   inscroll = true;
+
+//   const position = countPositionPercent(sectionEq);
+//   const switchFixedMenuClass = () =>
+//   switchActiveClass($(pointMenu), sectionEq)
+
+//   switchActiveClass(sections, sectionEq);
+//   switchFixedMenuClass();
+
+//   display.css({
+//     transform: `translateY(${position})`
+//   });
+//   unBlockScroll();
+// };
+
+
+// const scrollViewport = direction => {
+//   const activeSection = sections.filter(".active");
+//   const nextSection = activeSection.next();
+//   const prevSection = activeSection.prev();
+
+//   if (direction === "next" && nextSection.length) {
+//     performTransition(nextSection.index());
+//   }
+
+//   if (direction === "prev" && prevSection.length) {
+//     performTransition(prevSection.index());
+//   }
+// };
+
+
+// $(document).on({
+//   wheel: e => {
+//     const deltaY = e.originalEvent.deltaY;
+//     const direction = deltaY > 0 ? "next" : "prev";
+
+//     if (scrolable) {
+//       scrollViewport(direction);
+//     } 
+//   },
+//   keydown: e => {
+//     const tagName = e.target.tagName.toLowerCase();
+//     const userTypingInInputs = tagName === "input" || tagName === "textarea";
+
+//     if (userTypingInInputs) return;
+
+//     switch (e.keyCode) {
+//       case 40:
+//         scrollViewport("next");
+//         break;
+
+//       case 38:
+//         scrollViewport("prev");
+//         break;
+//     }
+//   }
+// });
+
+// $("[data-scroll-to]").on("click", e => {
+//   e.preventDefault();
+//   performTransition(parseInt($(e.currentTarget).attr("data-scroll-to")));
+// });
+
+
+// // разрешаем свайп на мобильниках
+// if (isMobile) {
+//   window.addEventListener(
+//     "touchmove",
+//     e => {
+//       e.preventDefault();
+//     },
+//     { passive: false }
+//   );
+
+//   $("body").swipe({
+//     swipe: (event, direction) => {
+//       let scrollDirecrion;
+//       if (direction === "up") scrollDirecrion = "next";
+//       if (direction === "down") scrollDirecrion = "prev";
+//       scrollViewport(scrollDirecrion);
+//     }
+//   });
+// }
+
+
+
+
+
+
+
+
+const sections = $(".section");
+const display = $(".main");
+
+let inScroll = false;
+
+const md = new MobileDetect(window.navigator.userAgent);
+const isMobile = md.mobile();
+
+const countSectionPosition = (sectionEq) => {
+
+  const position = sectionEq * -100;
+  if (isNaN(position))
+    console.error("передано не верное значение в countSectionPositon");
+
+  return position;
 };
 
-const switchActiveClass = (elems, elemNdx) => {
-
-  elems
-    .eq(elemNdx)
-    .addClass('active')
-    .siblings()
-    .removeClass('active');
-
-  //черный цвет для dots
-  if(elemNdx == 1 || elemNdx == 6 || elemNdx == 8) {
-    $(pointMenu).addClass('point-menu__link--black');
-  } else {
-      $(pointMenu).removeClass('point-menu__link--black');
-    };
+const resetActiveClass = (item, eq) => {
+  item.eq(eq).addClass("active").siblings().removeClass("active");
 };
 
-const unBlockScroll = () => {
-  setTimeout(() => {
-    inscroll = false;
-  }, 600); // подождать пока завершится инерция на тачпадах
-};
+const performTransition = (sectionEq) => {
+  if (inScroll) return;
 
-const performTransition = sectionEq => {
-  if (inscroll) return;
-  inscroll = true;
+  inScroll = true;
 
-  const position = countPositionPercent(sectionEq);
-  const switchFixedMenuClass = () =>
-  switchActiveClass($(pointMenu), sectionEq)
+  const position = countSectionPosition(sectionEq);
+  const trasitionOver = 1000;
+  const mouseInertionOver = 300;
 
-  switchActiveClass(sections, sectionEq);
-  switchFixedMenuClass();
+  resetActiveClass(sections, sectionEq);
 
   display.css({
-    transform: `translateY(${position})`
+    transform: `translateY(${position}%)`,
   });
-  unBlockScroll();
+
+  setTimeout(() => {
+    resetActiveClass($(".point-menu__link"), sectionEq);
+    inScroll = false;
+  }, trasitionOver + mouseInertionOver);
 };
 
-
-const scrollViewport = direction => {
+const scroller = () => {
   const activeSection = sections.filter(".active");
   const nextSection = activeSection.next();
   const prevSection = activeSection.prev();
 
-  if (direction === "next" && nextSection.length) {
-    performTransition(nextSection.index());
-  }
-
-  if (direction === "prev" && prevSection.length) {
-    performTransition(prevSection.index());
-  }
+  return {
+    next() {
+      if (nextSection.length) {
+        performTransition(nextSection.index());
+      }
+    },
+    prev() {
+      if (prevSection.length) {
+        performTransition(prevSection.index());
+      }
+    },
+  };
 };
 
+$(window).on("wheel", (e) => {
+  const deltaY = e.originalEvent.deltaY;
+  const windowScroller = scroller();
 
-$(document).on({
-  wheel: e => {
-    const deltaY = e.originalEvent.deltaY;
-    const direction = deltaY > 0 ? "next" : "prev";
+  if (deltaY > 0) {
+    windowScroller.next();
+  }
 
-    if (scrolable) {
-      scrollViewport(direction);
-    } 
-  },
-  keydown: e => {
-    const tagName = e.target.tagName.toLowerCase();
-    const userTypingInInputs = tagName === "input" || tagName === "textarea";
-
-    if (userTypingInInputs) return;
-
-    switch (e.keyCode) {
-      case 40:
-        scrollViewport("next");
-        break;
-
-      case 38:
-        scrollViewport("prev");
-        break;
-    }
+  if (deltaY < 0) {
+    windowScroller.prev();
   }
 });
 
-$("[data-scroll-to]").on("click", e => {
-  e.preventDefault();
-  performTransition(parseInt($(e.currentTarget).attr("data-scroll-to")));
+$(document).on("keydown", (e) => {
+  const tagName = e.target.tagName.toLowerCase();
+  const windowScroller = scroller();
+  const userTypingInInputs = tagName === "input" || tagName === "textarea";
+
+  if (userTypingInInputs) return;
+
+  switch (e.keyCode) {
+    case 38:
+      windowScroller.prev();
+      break;
+    case 40:
+      windowScroller.next();
+      break;
+  }
 });
 
+$("[data-scroll-to]").on("click", (e) => {
+  e.preventDefault();
 
-// разрешаем свайп на мобильниках
+  const $this = $(e.currentTarget);
+  const target = $this.attr("data-scroll-to");
+
+  performTransition(target);
+});
+
 if (isMobile) {
-  window.addEventListener(
-    "touchmove",
-    e => {
-      e.preventDefault();
-    },
-    { passive: false }
-  );
-
+  // https://github.com/mattbryson/TouchSwipe-Jquery-Plugin
   $("body").swipe({
     swipe: (event, direction) => {
-      let scrollDirecrion;
-      if (direction === "up") scrollDirecrion = "next";
-      if (direction === "down") scrollDirecrion = "prev";
-      scrollViewport(scrollDirecrion);
-    }
+      let scrollDirection;
+      const windowScroller = scroller();
+
+      if (direction === "up") scrollDirection = "next";
+      if (direction === "down") scrollDirection = "prev";
+
+      windowScroller[scrollDirection]();
+    },
   });
 }
