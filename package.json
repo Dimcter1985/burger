@@ -36,10 +36,12 @@
   "dependencies": {
     "acorn": "^7.2.0",
     "jquery": "^3.5.1",
+    "jquery-touchswipe": "^1.6.19",
     "kind-of": "^6.0.3",
     "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",
     "minimist": "^1.2.5",
+    "mobile-detect": "^1.4.4",
     "normalize.css": "^8.0.1"
   }
 }
