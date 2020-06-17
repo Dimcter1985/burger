@@ -56,7 +56,7 @@
     width: 6rem;
     height: 5.563rem;
     bottom: 100%;
-    background-image: url('./images/icons/meat.svg');
+    background-image: url('/images/icons/meat.svg');
     position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
@@ -69,13 +69,13 @@
   }
 
   &--hand::after {
-    background-image: url('./images/icons/hand.svg');
+    background-image: url('/images/icons/hand.svg');
     width: 4.563rem;
     height: 5.375rem;
   }
 
   &--natural::after {
-    background-image: url('./images/icons/natural.svg');
+    background-image: url('/images/icons/natural.svg');
     width: 5.5rem;
     height: 4.75rem;
   }
