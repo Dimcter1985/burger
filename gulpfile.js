@@ -6,14 +6,12 @@ const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 const sassGlob = require('gulp-sass-glob');
 const autoprefixer = require('gulp-autoprefixer');
-// const px2rem = require('gulp-smile-px2rem');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const svgo = require('gulp-svgo');
-// const svgSprite = require('gulp-svg-sprite');
 const gulpif = require('gulp-if');
 const imagemin = require('gulp-imagemin');
  
@@ -66,11 +64,6 @@ task('styles', () => {
    .pipe(reload({ stream: true }));
 });
  
-const libs = [
- 'node_modules/jquery/dist/jquery.js',
- 'src/scripts/*.js'
-];
- 
 task('scripts', () => {
  return src([...JS_LIBS, 'src/scripts/*.js'])
    .pipe(gulpif(env === 'dev', sourcemaps.init()))
@@ -95,13 +88,6 @@ task('icons', () => {
        }
      ]
    }))
-  //  .pipe(svgSprite({
-  //    mode: {
-  //      symbol: {
-  //        sprite: '../sprite.svg'
-  //      }
-  //    }
-  //  }))
    .pipe(dest(`${DIST_PATH}/images/icons`));
 });
  
